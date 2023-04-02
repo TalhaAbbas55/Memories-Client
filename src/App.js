@@ -4,7 +4,6 @@ import { Container, Typography, AppBar, Grow, Grid } from '@material-ui/core';
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
 import { getPosts } from './actions/posts'
-
 import makeStyles from './styles';
 import memories from './Images/memories.png';
 const App = () => {
