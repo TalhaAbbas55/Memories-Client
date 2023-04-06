@@ -3,9 +3,8 @@ import makeStyles from './styles';
 import { Card, CardActions, CardMedia, CardContent, Typography, Button } from "@material-ui/core";
 import { ThumbUpAlt, Delete, MoreHoriz } from "@material-ui/icons"
 import moment from 'moment';
-const Post = ({post}) => {
+const Post = ({post, setCurrentId}) => {
     const classes = makeStyles();
-    console.log(post,'post here singl');
     return (
         <Card className={classes.card}>
             <CardMedia className={classes.media} image={post.selectedFile} />
@@ -14,7 +13,7 @@ const Post = ({post}) => {
                 <Typography variant='body2'>{moment(post.createdAt).fromNow()}</Typography>
             </div>
                 <div className={classes.overlay2}>
-                    <Button size='small' style={{color: "white"}} onClick={()=>{}}>
+                    <Button size='small' style={{color: "white"}} onClick={()=>setCurrentId(post._id)}>
                         <MoreHoriz fontSize="medium" />
                     </Button>
                 </div>
