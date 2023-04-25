@@ -4,12 +4,15 @@ import {
   UPDATE,
   DELETE,
   LIKE,
+  FETCH_BY_SEARCH,
 } from "../constants/actionTypes";
 const initial_state = [];
 export default (posts = initial_state, action) => {
   switch (action.type) {
     case FETCH_ALL:
       return action.payload;
+    case FETCH_BY_SEARCH:
+      return [...action.payload];
     case CREATE:
       return [...posts, action.payload];
     case LIKE:

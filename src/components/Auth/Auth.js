@@ -40,13 +40,13 @@ const Auth = () => {
     gapi.load("client:auth2", start);
   }, []);
   const [showPassword, setShowPassword] = useState(false);
+  const [confirmShowPassword, setConfirmShowPassword] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
   const history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
     if (isSignup) {
       dispatch(signup(formData, history));
     } else {
@@ -58,6 +58,10 @@ const Auth = () => {
   };
   const handleShowPassword = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword);
+  const handleConfirmShowPassword = () =>
+    setConfirmShowPassword(
+      (prevConfirmShowPassword) => !prevConfirmShowPassword
+    );
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);
   };
@@ -113,15 +117,15 @@ const Auth = () => {
               label={"Password"}
               handleChange={handleChange}
               type={showPassword ? "text" : "password"}
-              handleShowPassword={handleSubmit}
+              handleShowPassword={handleShowPassword}
             />
             {isSignup && (
               <CustomInput
                 name={"confirmPassword"}
                 label={"Repeat Password"}
                 handleChange={handleChange}
-                type={showPassword ? "text" : "password"}
-                handleShowPassword={handleSubmit}
+                type={confirmShowPassword ? "text" : "password"}
+                handleShowPassword={handleConfirmShowPassword}
               />
             )}
           </Grid>
