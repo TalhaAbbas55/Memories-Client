@@ -16,7 +16,6 @@ import memories from "./Images/memories.png";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
-
 import PostDetails from "./components/PostDetails/PostsDetails";
 const App = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
